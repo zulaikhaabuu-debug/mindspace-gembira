@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MindSpace - Emosi Gembira</title>
+<style>
+body { font-family:Arial,sans-serif; background:#effaf1; color:#31523a; text-align:center; padding:25px; }
+h1 { color:#43885b; }
+.card { background:white; border:2px solid #ccebd2; border-radius:20px; padding:25px; max-width:280px; margin:30px auto; cursor:pointer; box-shadow:0 4px 12px #d9e9dc; }
+.emoji { display:block; font-size:55px; margin-bottom:12px; }
+.overlay { display:none; position:fixed; inset:0; background:rgba(30,50,35,.6); justify-content:center; align-items:center; padding:20px; }
+.overlay.show { display:flex; }
+.popup { background:white; max-width:400px; padding:25px; border-radius:20px; position:relative; text-align:left; animation:popUp .3s; }
+.popup h2 { color:#43885b; }
+.popup p,.popup li { line-height:1.7; }
+.tip { background:#edfaef; padding:12px; border-radius:12px; }
+.close { position:absolute; top:8px; right:10px; border:none; border-radius:50%; background:#ddf4e2; font-size:22px; cursor:pointer; width:32px; height:32px; }
+@keyframes popUp { from {transform:scale(.8);opacity:0} to {transform:scale(1);opacity:1} }
+</style>
+</head>
+<body>
+<h1>🌈 MindSpace</h1>
+<p>Kenali emosi anda dan pelajari cara menguruskannya.</p>
+
+<div class="card" onclick="openPopup()">
+  <span class="emoji">😊</span>
+  <strong>Emosi Gembira</strong>
+  <p>Klik untuk mengetahui lebih lanjut!</p>
+</div>
+
+<div class="overlay" id="overlay" onclick="closeOutside(event)">
+  <div class="popup">
+    <button class="close" onclick="closePopup()">×</button>
+    <h2>😊 Emosi Gembira</h2>
+    <p>Gembira ialah perasaan positif yang dialami apabila kita menikmati sesuatu yang menyeronokkan, mencapai matlamat atau meluangkan masa bersama orang tersayang.</p>
+    <p><strong>Contoh situasi:</strong><br>Berasa gembira apabila berjaya menyiapkan tugasan atau membantu rakan.</p>
+    <div class="tip">
+      💡 <strong>Cara menghayati emosi gembira:</strong>
+      <ul>
+        <li>Hargai perkara baik yang berlaku setiap hari.</li>
+        <li>Kongsikan kegembiraan dengan orang lain.</li>
+        <li>Ucapkan terima kasih dan tunjukkan penghargaan.</li>
+        <li>Lakukan aktiviti positif yang disukai.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+function openPopup() { document.getElementById("overlay").classList.add("show"); }
+function closePopup() { document.getElementById("overlay").classList.remove("show"); }
+function closeOutside(event) { if(event.target.id==="overlay") closePopup(); }
+document.addEventListener("keydown",function(event){if(event.key==="Escape")closePopup();});
+</script>
+</body>
+</html>
